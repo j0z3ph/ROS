@@ -2,35 +2,30 @@ import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
 
-
-class TurtleSubscriber(Node):
-
+class SimpleSubscriber(Node):
     def __init__(self):
-        super().__init__('turtle_subscriber')
+        super().__init__('simple_subscriber')
         self.subscription = self.create_subscription(
             String,
-            'command',
+            'hello_topic',
             self.listener_callback,
             10)
         self.subscription  # prevent unused variable warning
 
     def listener_callback(self, msg):
-        self.get_logger().info(f'Command: "{msg.data}"')
-
+        self.get_logger().info('I heard: "%s"' % msg.data)
 
 def main(args=None):
     rclpy.init(args=args)
-
-    turtle_subscriber = TurtleSubscriber()
-
-    rclpy.spin(turtle_subscriber)
-
+    simple_subscriber = SimpleSubscriber()
+    rclpy.spin(simple_subscriber)
     # Destroy the node explicitly
     # (optional - otherwise it will be done automatically
     # when the garbage collector destroys the node object)
-    turtle_subscriber.destroy_node()
+    simple_subscriber.destroy_node()
     rclpy.shutdown()
 
 
 if __name__ == '__main__':
     main()
+    

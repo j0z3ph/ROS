@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>py_turtle_subscriber</name>
-  <version>0.1.0</version>
-  <description>Turtle subscriber for Turtle-Car</description>
-  <maintainer email="jlcruz@ipn.mx">j0z3ph</maintainer>
+  <name>blink_publisher</name>
+  <version>0.0.0</version>
+  <description>Send data to blink ESP32 led</description>
+  <maintainer email="jlcruz@ipn.mx">ubuntu</maintainer>
   <license>MIT</license>
 
   <exec_depend>rclpy</exec_depend>
   <exec_depend>std_msgs</exec_depend>
-
+  
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
   <test_depend>ament_pep257</test_depend>

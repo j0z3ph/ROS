@@ -1,11 +1,12 @@
 from setuptools import find_packages, setup
 
-package_name = 'py_turtle_subscriber'
+package_name = 'blink_publisher_gui'
 
 setup(
     name=package_name,
-    version='0.1.0',
+    version='0.0.0',
     packages=find_packages(exclude=['test']),
+    #packages=[package_name, f"{package_name}.gui"],
     data_files=[
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
@@ -13,14 +14,18 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='j0z3ph',
+    maintainer='jlcruz',
     maintainer_email='jlcruz@ipn.mx',
-    description='Turtle subscriber for Turtle-Car',
+    description='MicroROS PySide6 example',
     license='MIT',
-    tests_require=['pytest'],
+    extras_require={
+        'test': [
+            'pytest',
+        ],
+    },
     entry_points={
         'console_scripts': [
-            'listener = py_turtle_subscriber.turtle_subscriber:main',
+            'blink_gui = blink_publisher_gui.blink_publisher:main'
         ],
     },
 )
